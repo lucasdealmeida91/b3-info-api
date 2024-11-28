@@ -39,7 +39,7 @@ def get_b3_data():
         carteira = [f"{a}.SA" for a in br['symbol'] if len(a) <= 5]
 
         # Selecionar todos os ativos para consulta
-        carteira_pequena = carteira[:10]
+        carteira_pequena = carteira[:100]
         
         for ticker in carteira_pequena:
             try:
