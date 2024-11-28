@@ -1,56 +1,55 @@
-# B3 Data API e Frontend
+# B3 Info API
 
-Este projeto consiste em uma API que fornece dados da B3 e uma interface web para visualização dos dados.
+Este projeto fornece uma API para dados da B3 (Bolsa de Valores do Brasil) e uma interface web para visualização dos dados.
 
-## Estrutura do Projeto
+## Links
 
-- `gerador_dados_b3_json_csv.py`: API Flask que fornece dados da B3
-- `index.html`: Interface web para visualização dos dados
-- `requirements.txt`: Dependências Python necessárias
+- **API**: [https://b3-info-api.onrender.com/api/b3-data](https://b3-info-api.onrender.com/api/b3-data)
+- **Interface Web**: [https://lucasdealmeida91.github.io/b3-info-api/](https://lucasdealmeida91.github.io/b3-info-api/)
 
-## Instruções de Deploy
+## Funcionalidades
 
-### Deploy da API (Python Anywhere)
+- Consulta de dados de ações da B3
+- Visualização em tabela interativa
+- Ordenação e filtro de dados
+- Formatação de valores em formato brasileiro
+- Atualização automática dos dados
 
-1. Crie uma conta em [Python Anywhere](https://www.pythonanywhere.com)
-2. Vá para a seção "Web" e crie uma nova aplicação web
-3. Escolha Flask e Python 3.8
-4. Na seção "Files", faça upload dos arquivos:
-   - `gerador_dados_b3_json_csv.py`
-   - `requirements.txt`
-5. No console Bash, execute:
-   ```bash
-   pip3 install --user -r requirements.txt
-   ```
-6. Configure o arquivo WSGI (`/var/www/yourusername_pythonanywhere_com_wsgi.py`):
-   ```python
-   import sys
-   path = '/home/yourusername/mysite'
-   if path not in sys.path:
-       sys.path.append(path)
-   
-   from gerador_dados_b3_json_csv import app as application
-   ```
-7. Reinicie a aplicação web
+## Tecnologias Utilizadas
 
-### Deploy do Frontend (GitHub Pages)
+- Backend:
+  - Python
+  - Flask
+  - yfinance
+  - investpy
+  - pandas
+  
+- Frontend:
+  - HTML5
+  - Bootstrap 5
+  - DataTables
+  - jQuery
 
-1. Crie um novo repositório no GitHub
-2. Faça upload do arquivo `index.html`
-3. Vá para Settings > Pages
-4. Selecione a branch main e a pasta root
-5. Ative o GitHub Pages
+## Hospedagem
 
-## Configuração após Deploy
+- Backend: Render.com
+- Frontend: GitHub Pages
 
-Após o deploy, atualize a URL da API no arquivo `index.html`:
+## Como Usar
 
-```javascript
-fetch('https://seuusername.pythonanywhere.com/api/b3-data')
-```
+1. Acesse a [interface web](https://lucasdealmeida91.github.io/b3-info-api/)
+2. Os dados serão carregados automaticamente
+3. Use a barra de pesquisa para filtrar dados
+4. Clique nas colunas para ordenar
+5. Use a paginação para navegar entre os resultados
 
-## Notas de Segurança
+## API Endpoints
 
-- Configure CORS apropriadamente na API para permitir apenas domínios confiáveis
-- Considere adicionar rate limiting na API
-- Mantenha as dependências atualizadas
+- GET `/api/b3-data`: Retorna dados das ações da B3
+
+## Desenvolvimento Local
+
+1. Clone o repositório
+2. Instale as dependências: `pip install -r requirements.txt`
+3. Execute a API: `python gerador_dados_b3_json_csv.py`
+4. Abra o arquivo `index.html` no navegador
