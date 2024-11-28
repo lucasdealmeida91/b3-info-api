@@ -138,7 +138,7 @@
 
             function fetchData() {
                 loading.show();
-                fetch('https://infob3-api.onrender.com/api/b3-data')
+                fetch('https://b3-info-api.onrender.com/api/b3-data')
                     .then(response => response.json())
                     .then(data => {
                         initializeDataTable(data);
